@@ -19,10 +19,17 @@ class App extends Component {
           >
             Learn React
           </a>
+          <button type="button" onClick={this.handleHelloClick}>Hello</button>
         </header>
       </div>
     );
   }
+
+  private handleHelloClick = async () => {
+    const { default: dynamic } = await import('./dynamic');
+    const result = dynamic();
+    window.console.log(result);
+  };
 }
 
 export default App;
